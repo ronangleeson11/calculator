@@ -1,21 +1,44 @@
 .calculator {
     display: flex;
     flex-direction: column;
-    width: 25vw;
-    align-items: flex-end;
+    width: 24vw;
+    background-color: #222222;
+    padding: 1vw;
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
+    gap: 2px;
 }
 
 button {
-    flex: 25%;
+    flex: calc(25% - 2px);
     aspect-ratio: 2/1;
+    background-color: #888888;
 }
 
 .clear {
-    flex: 50%;
+    background-color: #880000;
+    font-size: 1.5rem;
+}
+
+.equals {
+    flex: calc(50% - 2px);
     aspect-ratio: 4/1;
+    background-color: #000088;
+    font-size: 1.5rem;
+}
+
+.add, .subtract, .multiply, .divide {
+    background-color: #444444;
+    font-size: 1.5rem;
+}
+
+.screen {
+    text-align: right;
+    background-color: #008800;
+    padding: 1vw;
+    font-family: "Consolas";
+    font-size: 1.5rem;
 }
