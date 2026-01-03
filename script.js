@@ -71,14 +71,16 @@ buttons.addEventListener("click", (event) => {
             symbol = "8";
             break;
         case "d9":
-            symbol = "9 ";
+            symbol = "9";
             break;
         case "clear":
             symbol = "";
+            screen.textContent = "";
             break;
-        case "=":
-            symbol ="";
+        case "equals":
+            symbol = "";
+            screen.textContent = "";
             break;    
     }
-    screen.textContent = symbol;
+    screen.textContent += symbol + " ";
 });
