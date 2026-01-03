@@ -1,3 +1,21 @@
-p {
-    color: red;
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    align-items: flex-end;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    flex: 25%;
+    aspect-ratio: 2/1;
+}
+
+.clear {
+    flex: 50%;
+    aspect-ratio: 4/1;
 }
