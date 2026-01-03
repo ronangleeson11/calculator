@@ -1,58 +1,57 @@
 function add(op1, op2) {
-    return op1 + op2;
+    return +op1 + +op2;
 }
 
 function subtract(op1, op2) {
-    return op1 - op2;
+    return +op1 - +op2;
 }
 
 function multiply(op1, op2) {
-    return op1 * op2;
+    return +op1 * +op2;
 }
 
 function divide(op1, op2) {
-    return op1 / op2;
+    return +op1 / +op2;
 }
 
 function operate(op1, op2, opr) {
     switch (opr) {
-        case "add":
+        case "+":
             return add(op1, op2);
-        case "subtract":
+        case "-":
             return subtract(op1, op2);
-        case "multiply":
+        case "*":
             return multiply(op1, op2);
-        case "divide":
+        case "/":
             return divide(op1, op2);
     }
 }
 
-let op1, op2, opr;
-let firstArg = false;
-let secondArg = false;
-let hasOpr = false;
+let op1 = "";
+let op2 = "";
+let opr = "";
 screen = document.querySelector("#screen");
 buttons = document.querySelector("#buttons");
 buttons.addEventListener("click", (event) => {
     if (event.target.classList.contains("digit")) {
-        console.log("digit");
-        firstArg = true;
-        if (hasOpr) {
-            secondArg = true;
+        if (opr) {
+            op2 += event.target.textContent;
+        } else {
+            op1 += event.target.textContent;
         }
     }
     if (event.target.classList.contains("opr")) {
-        if (firstArg) {
-            op1 = screen.textContent;
-            opr = event.target.textContent;
-        }
+        opr = event.target.textContent;
     }
     switch (event.target.textContent) {
         case "CE":
             screen.textContent = "";
+            op1 = op2 = opr = "";
             break;
         case "=":
-            screen.textContent = "";
+            console.log(operate(op1, op2, opr));
+            screen.textContent = operate(op1, op2, opr);
+            op1 = op2 = opr = "";
             break;
         default:
             screen.textContent += event.target.textContent;
