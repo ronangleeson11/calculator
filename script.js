@@ -32,3 +32,9 @@ function operate(op1, op2, opr) {
 }
 
 let op1, op2, opr;
+
+buttons = document.querySelector(".buttons");
+buttons.addEventListener("click", (event) => {
+    console.log(event);
+});
+screen = document.querySelector(".screen");
