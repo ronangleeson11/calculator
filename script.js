@@ -49,9 +49,8 @@ buttons.addEventListener("click", (event) => {
             op1 = op2 = opr = "";
             break;
         case "=":
-            console.log(operate(op1, op2, opr));
-            screen.textContent = operate(op1, op2, opr);
-            op1 = op2 = opr = "";
+            op1 = screen.textContent = operate(op1, op2, opr);
+            op2 = opr = "";
             break;
         default:
             screen.textContent += event.target.textContent;
