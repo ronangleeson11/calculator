@@ -28,59 +28,33 @@ function operate(op1, op2, opr) {
 }
 
 let op1, op2, opr;
+let firstArg = false;
+let secondArg = false;
+let hasOpr = false;
 screen = document.querySelector("#screen");
 buttons = document.querySelector("#buttons");
 buttons.addEventListener("click", (event) => {
-    console.log(event.target.id);
-    let symbol = "";
-    switch (event.target.id) {
-        case "add":
-            symbol = "+";
-            break;
-        case "subtract":
-            symbol = "-";
-            break;
-        case "multiply":
-            symbol = "*";
-            break;
-        case "divide":
-            symbol = "/";
-            break;
-        case "d1":
-            symbol = "1";
-            break;
-        case "d2":
-            symbol = "2";
-            break;
-        case "d3":
-            symbol = "3";
-            break;
-        case "d4":
-            symbol = "4";
-            break;
-        case "d5":
-            symbol = "5";
-            break;
-        case "d6":
-            symbol = "6";
-            break;
-        case "d7":
-            symbol = "7";
-            break;
-        case "d8":
-            symbol = "8";
-            break;
-        case "d9":
-            symbol = "9";
-            break;
-        case "clear":
-            symbol = "";
-            screen.textContent = "";
-            break;
-        case "equals":
-            symbol = "";
-            screen.textContent = "";
-            break;    
+    if (event.target.classList.contains("digit")) {
+        console.log("digit");
+        firstArg = true;
+        if (hasOpr) {
+            secondArg = true;
+        }
     }
-    screen.textContent += symbol + " ";
+    if (event.target.classList.contains("opr")) {
+        if (firstArg) {
+            op1 = screen.textContent;
+            opr = event.target.textContent;
+        }
+    }
+    switch (event.target.textContent) {
+        case "CE":
+            screen.textContent = "";
+            break;
+        case "=":
+            screen.textContent = "";
+            break;
+        default:
+            screen.textContent += event.target.textContent;
+    }
 });
